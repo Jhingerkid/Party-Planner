@@ -1,0 +1,23 @@
+* {
+    border: 2px dotted red;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sticky-sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 200px;
+}
+
+.main-content-box {
+    padding-left: 200px;
+}
+
+.menu-background-img {
+    width: 100%;
+}
