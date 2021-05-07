@@ -33,7 +33,7 @@ export async function gatherMenuData() {
 
 function createMenuItem (list) {
     console.log(list);
-    list.forEach(element => {
+    list.forEach((element, index) => {
         // declare the elements that will make up each restaurant
         let restaurantItem = document.createElement("div");
         let restaurantName = document.createElement("h2");
@@ -51,6 +51,7 @@ function createMenuItem (list) {
         // add an event listener to the order button
         restaurantOrder.addEventListener("click", function () {
             // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
+        console.log(list[index][menus][0][menu_sections].forEach[index].forEach[index].name)
         });
         // append element to div
         restaurantItem.append(restaurantName, restaurantDesc, restaurantOrder);
