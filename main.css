@@ -31,6 +31,27 @@ button {
     background-color: orange;
     color: black;
     border-radius: 6px;
+    cursor: pointer;
+}
+
+.location-header {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.location-button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.location-button:hover {
+    background-color: black;
+    color: orange;
+    border: 1px solid orange;
 }
 
 .sticky-sidebar {
@@ -59,8 +80,8 @@ button {
 }
 
 #clickme:hover {
-    background-color: orange;
-    border: 1px solid black;
+    background-color: black;
+    color: darkorange;
 }
 
 .sidebar-text {
@@ -85,12 +106,17 @@ button {
 
 .sidebar-button {
     background-color: black;
-    color: white;
+    color: wheat;
     border: none;
     border-radius: 6px;
     font-size: 14px;
     padding: 8px 12px;
     cursor: pointer;
+}
+
+.sidebar-button:hover {
+    background-color: orange;
+    color: black;
 }
 
 .main-content-box {
@@ -105,10 +131,11 @@ button {
     align-items: center;
     padding: 30px;
     background-color: darkorange;
+    min-height: 100vh;
 
 }
 
-.restaurantItem {
+.restaurant-item {
     max-width: 400px;
     min-width: 350px;
     background-color: blanchedalmond;
@@ -119,13 +146,25 @@ button {
     transform: rotate(3deg);
 }
 
-.restaurantItem:hover {
+.restaurant-item:hover {
     border: 4px solid orange;
     border-radius: 5%;
 }
 
-.restaurantItem > * {
+.restaurant-item > * {
     transform: rotate(-3deg);
+}
+
+.restaurant-order {
+    background-color: darkorange;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.restaurant-order:hover {
+    background-color: black;
+    color: orange;
 }
 
 .restaurant-menu {
