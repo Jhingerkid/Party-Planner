@@ -90,6 +90,7 @@ button {
     border-radius: 6px;
     font-size: 14px;
     padding: 8px 12px;
+    cursor: pointer;
 }
 
 .main-content-box {
@@ -133,4 +134,15 @@ button {
 
 .menu-background-img {
     width: 100%;
+}
+
+.modal {
+    background-color: white;
+    border: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
 }
