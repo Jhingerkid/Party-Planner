@@ -12,11 +12,13 @@ body {
 header {
     width: 100%;
     padding: 5px 30px;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: black;
     color: orange;
+    z-index: 6;
 }
 
 h1 {
@@ -45,6 +47,7 @@ button {
     justify-content: center;
     align-items: center;
     color: black;
+    z-index: 5;
 }
 
 #clickme {
@@ -90,6 +93,7 @@ button {
 }
 
 .main-content-box {
+    padding-top: 90px;
     padding-right: 200px;
 }
 
