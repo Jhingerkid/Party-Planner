@@ -4,13 +4,17 @@ import { createTotalModal } from "./Modal/createModal.js";
 
 display(document.querySelector("#main-page"));
 
-document.querySelector(".restaurantOrder").addEventListener("click", async function () {
-	display("#restaurant-menu");
+let orderButtons = document.querySelectorAll(".restaurant-order");
+orderButtons.forEach((button) => {
+	button.addEventListener("click", function (event) {
+		console.log(event.target); // use me to display differnet shop menus
+		display(document.querySelector("#restaurant-menu"));
+	});
 });
 
 // I would like to be able to use display(gatherMenuData());
 document.querySelector("#clickme").addEventListener("click", async function () {
-	gatherMenuData("#restaurant-menu");
+	gatherMenuData();
 });
 // overlay
 document.querySelector(".sidebar-button").addEventListener("click", function () {

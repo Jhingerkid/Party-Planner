@@ -22,20 +22,20 @@ header {
 }
 
 header > * {
-    z-index: 7;
+	z-index: 7;
 }
 
 header::after {
-    position: absolute;
-    content: " ";
-    display: block;
-    left: -30%;
-    bottom: -50px;
-    transform: rotate(-2deg);
-    width: 150%;
-    background-color: black;
-    z-index: 0;
-    height: 90px;
+	position: absolute;
+	content: " ";
+	display: block;
+	left: -30%;
+	bottom: -50px;
+	transform: rotate(-2deg);
+	width: 150%;
+	background-color: black;
+	z-index: 0;
+	height: 90px;
 }
 
 h1 {
@@ -44,7 +44,7 @@ h1 {
 }
 
 h2 {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 button {
@@ -115,8 +115,8 @@ button {
 }
 
 .sidebar-button:hover {
-    background-color: orange;
-    color: black;
+	background-color: orange;
+	color: black;
 }
 
 .main-content-box {
@@ -156,19 +156,15 @@ button {
 }
 
 .restaurant-order {
-    background-color: darkorange;
-    padding: 5px 10px;
-    font-size: 15px;
-    font-weight: bold;
+	background-color: darkorange;
+	padding: 5px 10px;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .restaurant-order:hover {
-    background-color: black;
-    color: orange;
-}
-
-.restaurant-menu {
-	display: none;
+	background-color: black;
+	color: orange;
 }
 
 .menu-background-img {
