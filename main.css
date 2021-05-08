@@ -7,12 +7,13 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
     width: 100%;
     padding: 5px 30px;
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,9 +22,30 @@ header {
     z-index: 6;
 }
 
+header > * {
+    z-index: 7;
+}
+
+header::after {
+    position: absolute;
+    content: " ";
+    display: block;
+    left: -30%;
+    bottom: -50px;
+    transform: rotate(-2deg);
+    width: 150%;
+    background-color: black;
+    z-index: 0;
+    height: 90px;
+}
+
 h1 {
     color: orange;
     font-style: italic;
+}
+
+h2 {
+    margin-bottom: 0;
 }
 
 button {
@@ -31,6 +53,27 @@ button {
     background-color: orange;
     color: black;
     border-radius: 6px;
+    cursor: pointer;
+}
+
+.location-header {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.location-button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.location-button:hover {
+    background-color: black;
+    color: orange;
+    border: 1px solid orange;
 }
 
 .sticky-sidebar {
@@ -59,8 +102,8 @@ button {
 }
 
 #clickme:hover {
-    background-color: orange;
-    border: 1px solid black;
+    background-color: black;
+    color: darkorange;
 }
 
 .sidebar-text {
@@ -85,7 +128,7 @@ button {
 
 .sidebar-button {
     background-color: black;
-    color: white;
+    color: wheat;
     border: none;
     border-radius: 6px;
     font-size: 14px;
@@ -93,8 +136,13 @@ button {
     cursor: pointer;
 }
 
+.sidebar-button:hover {
+    background-color: orange;
+    color: black;
+}
+
 .main-content-box {
-    padding-top: 90px;
+    padding-top: 120px;
     padding-right: 200px;
 }
 
@@ -105,10 +153,13 @@ button {
     align-items: center;
     padding: 30px;
     background-color: darkorange;
+    min-height: 100vh;
 
 }
 
-.restaurantItem {
+.restaurant-item {
+    display: flex;
+    flex-direction: column;
     max-width: 400px;
     min-width: 350px;
     background-color: blanchedalmond;
@@ -119,13 +170,25 @@ button {
     transform: rotate(3deg);
 }
 
-.restaurantItem:hover {
+.restaurant-item:hover {
     border: 4px solid orange;
     border-radius: 5%;
 }
 
-.restaurantItem > * {
+.restaurant-item > * {
     transform: rotate(-3deg);
+}
+
+.restaurant-order {
+    background-color: darkorange;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.restaurant-order:hover {
+    background-color: black;
+    color: orange;
 }
 
 .restaurant-menu {
@@ -137,12 +200,17 @@ button {
 }
 
 .modal {
-    background-color: white;
-    border: 1px solid black;
+    background-color: black;
+    border: 4px solid orange;
     position: fixed;
+    box-shadow: 2px 2px 20px orangered;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
     height: 400px;
+    box-shadow: 2px 2px 50px black;
+    color: blanchedalmond;
+    padding: 30px;
+    border-radius: 2%;
 }
