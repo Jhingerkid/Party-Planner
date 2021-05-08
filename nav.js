@@ -1,11 +1,15 @@
 export function display(displayMe) {
-  let parent = document.querySelector(".main-content-box");
-  parent.content.remove(); // if this doesnt work
-  let view = displayMe.content.cloneNode(true);
+  document.querySelector(".delete-and-replace-me").remove(); // clear page
 
-  let backButton = displayMe.backButton;
-  let nextButton = displayMe.nexButton;
+  let parent = document.createElement("div");
+  parent.classList.add(displayMe.class);
+  document.querySelector(".main-content-box").appendChild(parent);
 
+  let view = document.createElement("div");
+  if (displayMe.id) {
+    view.classList.add(displayMe.id); // makes classes of the ids so the css doesnt mess with the templates
+  }
+  view.appendChild(displayMe.content.cloneNode(true));
   parent.appendChild(view);
-  return [backButton, nextButton];
+  return;
 }

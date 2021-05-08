@@ -1,11 +1,10 @@
 import { gatherMenuData } from "./API/gatherMenuData.js";
 import { display } from "./nav.js";
 
-document.querySelector("#clickme").addEventListener("click", function () {
-  gatherMenuData();
-});
+// console.log(document.querySelector("#main-page"));
 
-// instead:
-document.querySelector("#clickme").addEventListener("click", function () {
-  let [backButton, nextButton] = display(gatherMenuData());
+display(document.querySelector("#main-page"));
+
+document.querySelector("#clickme").addEventListener("click", async function () {
+  gatherMenuData();
 });
