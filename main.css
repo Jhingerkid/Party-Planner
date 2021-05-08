@@ -7,12 +7,13 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
     width: 100%;
     padding: 5px 30px;
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,9 +22,30 @@ header {
     z-index: 6;
 }
 
+header > * {
+    z-index: 7;
+}
+
+header::after {
+    position: absolute;
+    content: " ";
+    display: block;
+    left: -30%;
+    bottom: -50px;
+    transform: rotate(-2deg);
+    width: 150%;
+    background-color: black;
+    z-index: 0;
+    height: 90px;
+}
+
 h1 {
     color: orange;
     font-style: italic;
+}
+
+h2 {
+    margin-bottom: 0;
 }
 
 button {
@@ -120,7 +142,7 @@ button {
 }
 
 .main-content-box {
-    padding-top: 90px;
+    padding-top: 120px;
     padding-right: 200px;
 }
 
@@ -136,6 +158,8 @@ button {
 }
 
 .restaurant-item {
+    display: flex;
+    flex-direction: column;
     max-width: 400px;
     min-width: 350px;
     background-color: blanchedalmond;
