@@ -12,11 +12,13 @@ body {
 header {
 	width: 100%;
 	padding: 5px 30px;
+	position: absolute;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: black;
 	color: orange;
+	z-index: 6;
 }
 
 h1 {
@@ -39,12 +41,13 @@ button {
 	width: 200px;
 	background-color: blanchedalmond;
 	padding: 0 28px;
-	/* z-index: -1; */
+	z-index: -1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: black;
+	z-index: 5;
 }
 
 #clickme {
@@ -87,10 +90,12 @@ button {
 	border-radius: 6px;
 	font-size: 14px;
 	padding: 8px 12px;
+	cursor: pointer;
 }
 
 .main-content-box {
-	margin-right: 200px;
+	padding-top: 90px;
+	padding-right: 200px;
 }
 
 .main-page {
@@ -128,4 +133,15 @@ button {
 
 .menu-background-img {
 	width: 100%;
+}
+
+.modal {
+	background-color: white;
+	border: 1px solid black;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	height: 400px;
 }
