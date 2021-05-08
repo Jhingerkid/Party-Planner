@@ -31,23 +31,23 @@ export async function gatherMenuData() {
     createMenuItem(restaurantList);
 }
 
-function createMenuItem (list) {
-    console.log(list);
-    list.forEach(element => {
+function createMenuItem (restaurantList) {
+    console.log(restaurantList);
+    restaurantList.forEach(restaurant => {
         // declare the elements that will make up each restaurant
         let restaurantItem = document.createElement("div");
         let restaurantName = document.createElement("h2");
         let restaurantDesc = document.createElement("p");
         let restaurantOrder = document.createElement("button");
         // give each element a class
-        restaurantItem.classList.add("restaurantItem");
-        restaurantName.classList.add("restaurantName");
-        restaurantDesc.classList.add("restaurantDesc");
-        restaurantOrder.classList.add("restaurantOrder");
+        restaurantItem.classList.add("restaurant-item");
+        restaurantName.classList.add("restaurant-name");
+        restaurantDesc.classList.add("restaurant-desc");
+        restaurantOrder.classList.add("restaurant-order");
         // populate the innerhtml for each element
-        restaurantName.innerHTML = element.restaurant_name;
+        restaurantName.innerHTML = restaurant.restaurant_name;
         restaurantDesc.innerHTML = "description";
-        restaurantOrder.innerHTML = "Order from " + element.restaurant_name;
+        restaurantOrder.innerHTML = "Order from " + restaurant.restaurant_name;
         // add an event listener to the order button
         restaurantOrder.addEventListener("click", function () {
             // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
