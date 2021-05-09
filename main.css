@@ -1,216 +1,183 @@
 * {
-    /* border: 2px dotted red; */
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
+	/* border: 2px dotted red; */
+	font-family: Arial, Helvetica, sans-serif;
+	box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 header {
-    width: 100%;
-    padding: 5px 30px;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: orange;
-    z-index: 6;
+	width: 100%;
+	padding: 5px 30px;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: black;
+	color: orange;
+	z-index: 6;
 }
 
 header > * {
-    z-index: 7;
+	z-index: 7;
 }
 
 header::after {
-    position: absolute;
-    content: " ";
-    display: block;
-    left: -30%;
-    bottom: -50px;
-    transform: rotate(-2deg);
-    width: 150%;
-    background-color: black;
-    z-index: 0;
-    height: 90px;
+	position: absolute;
+	content: " ";
+	display: block;
+	left: -30%;
+	bottom: -50px;
+	transform: rotate(-2deg);
+	width: 150%;
+	background-color: black;
+	z-index: 0;
+	height: 90px;
 }
 
 h1 {
-    color: orange;
-    font-style: italic;
+	color: orange;
+	font-style: italic;
 }
 
 h2 {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 button {
-    border: none;
-    background-color: orange;
-    color: black;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.location-header {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-}
-
-.location-button {
-    padding: 5px 10px;
-    border: 1px solid black;
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.location-button:hover {
-    background-color: black;
-    color: orange;
-    border: 1px solid orange;
+	border: none;
+	background-color: orange;
+	color: black;
+	border-radius: 6px;
 }
 
 .sticky-sidebar {
-    position: fixed;
-    top: -90px;
-    right: 0;
-    height: calc(100vh + 90px);
-    width: 200px;
-    background-color: blanchedalmond;
-    padding: 0 28px;
-    z-index: -1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    z-index: 5;
+	position: fixed;
+	top: -90px;
+	right: 0;
+	height: calc(100vh + 90px);
+	width: 200px;
+	background-color: blanchedalmond;
+	padding: 0 28px;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	z-index: 5;
 }
 
 #clickme {
-    background-color: darkorange;
-    border: none;
-    font-size: 14px;
-    padding: 8px 12px;
-    margin-bottom: 70px;
+	background-color: darkorange;
+	border: none;
+	font-size: 14px;
+	padding: 8px 12px;
+	margin-bottom: 70px;
 }
 
 #clickme:hover {
-    background-color: black;
-    color: darkorange;
+	background-color: orange;
+	border: 1px solid black;
 }
 
 .sidebar-text {
-    text-align: center;
-    margin: 5px 0;
+	text-align: center;
+	margin: 5px 0;
 }
 
 .sidebar-number {
-    font-size: 36px;
+	font-size: 36px;
 }
 
 .sidebar-total {
-    background-image: url("images/bag-icon.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 128px;
-    width: 103px;
-    padding-top: 50px;
-    color: orange;
+	background-image: url("images/bag-icon.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 128px;
+	width: 103px;
+	padding-top: 50px;
+	color: orange;
 }
 
 .sidebar-button {
-    background-color: black;
-    color: wheat;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    padding: 8px 12px;
-    cursor: pointer;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	padding: 8px 12px;
+	cursor: pointer;
 }
 
 .sidebar-button:hover {
-    background-color: orange;
-    color: black;
+	background-color: orange;
+	color: black;
 }
 
 .main-content-box {
-    padding-top: 120px;
-    padding-right: 200px;
+	padding-top: 90px;
+	padding-right: 200px;
+	height: 100vh;
 }
 
 .main-page {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 30px;
-    background-color: darkorange;
-    min-height: 100vh;
-
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	padding: 30px;
+	background-color: darkorange;
 }
 
-.restaurant-item {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    min-width: 350px;
-    background-color: blanchedalmond;
-    margin: 30px 10px;
-    padding: 30px;
-    border: 4px solid black;
-    box-shadow: 2px 2px 20px orangered;
-    transform: rotate(3deg);
+.restaurantItem {
+	max-width: 400px;
+	min-width: 350px;
+	background-color: blanchedalmond;
+	margin: 30px 10px;
+	padding: 30px;
+	border: 4px solid black;
+	box-shadow: 2px 2px 20px orangered;
+	transform: rotate(3deg);
 }
 
-.restaurant-item:hover {
-    border: 4px solid orange;
-    border-radius: 5%;
+.restaurantItem:hover {
+	border: 4px solid orange;
+	border-radius: 5%;
 }
 
-.restaurant-item > * {
-    transform: rotate(-3deg);
+.restaurantItem > * {
+	transform: rotate(-3deg);
 }
 
 .restaurant-order {
-    background-color: darkorange;
-    padding: 5px 10px;
-    font-size: 15px;
-    font-weight: bold;
+	background-color: darkorange;
+	padding: 5px 10px;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .restaurant-order:hover {
-    background-color: black;
-    color: orange;
-}
-
-.restaurant-menu {
-    display: none;
+	background-color: black;
+	color: orange;
 }
 
 .menu-background-img {
-    width: 100%;
+	width: 100%;
 }
 
 .modal {
-    background-color: black;
-    border: 4px solid orange;
-    position: fixed;
-    box-shadow: 2px 2px 20px orangered;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    box-shadow: 2px 2px 50px black;
-    color: blanchedalmond;
-    padding: 30px;
-    border-radius: 2%;
+	background-color: white;
+	border: 1px solid black;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	height: 400px;
 }
