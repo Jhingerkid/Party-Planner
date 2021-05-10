@@ -1,5 +1,6 @@
 import { gatherMenuData } from "./API/gatherMenuData.js";
 import { createTotalModal } from "./Modal/createModal.js";
+import { display } from "./nav.js";
 
 display(document.querySelector("#main-page"));
 
