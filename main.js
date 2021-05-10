@@ -19,3 +19,5 @@ document.querySelector("#clickme").addEventListener("click", async function () {
 document.querySelector(".sidebar-button").addEventListener("click", function () {
 	createTotalModal();
 });
+
+//checkpoint
