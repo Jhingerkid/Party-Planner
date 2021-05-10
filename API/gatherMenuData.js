@@ -1,5 +1,6 @@
 export async function gatherMenuData() {
 <<<<<<< HEAD
+<<<<<<< HEAD
   var restaurantList = [];
   let url =
     "https://api.documenu.com/v2/restaurants/zip_code/83843?fullmenu=true";
@@ -99,6 +100,40 @@ function createMenuItem(list) {
     createMenuItem(restaurantList);
 }
 
+=======
+    var restaurantList = [];
+    let url = "https://api.documenu.com/v2/restaurants/zip_code/83843?fullmenu=true";
+    const request = await fetch(url, {
+      method: "GET",
+      headers: { "x-api-key": "39c3b2215c250e6368b87bd16adfdb4a" }
+    });
+    const response = await request.json();
+    // create an array of objects, where each object represents a location that exists in the desired zipcode
+    let menuData = response.data;
+    console.log(menuData); // the initial array of data that is retrieved
+    // take the array of retrieved objects, and gather the locations we want by matching strings
+    menuData.forEach(element => {
+        if (element.restaurant_name === "Moscow Alehouse"){
+            window.moscowAlehouse = element;
+            restaurantList.push(window.moscowAlehouse);
+        }
+        if (element.restaurant_name === "Maialina Pizzeria Napoletana"){
+            window.maialina = element;
+            restaurantList.push(window.maialina);
+        }
+        if (element.restaurant_name === "CD's Smoke Pit"){
+            window.smokePit = element;
+            restaurantList.push(window.smokePit);
+        }
+        if (element.restaurant_name === "Sangria Grill"){
+            window.sangriaGrill = element;
+            restaurantList.push(window.sangriaGrill);
+        }
+    });
+    createMenuItem(restaurantList);
+}
+
+>>>>>>> parent of 1433e00 (merging main down to mine)
 function createMenuItem (restaurantList) {
     console.log(restaurantList);
     restaurantList.forEach(restaurant => {
@@ -125,5 +160,9 @@ function createMenuItem (restaurantList) {
         // append the new div
         document.querySelector(".main-page").append(restaurantItem);
     });
+<<<<<<< HEAD
+}
+>>>>>>> parent of 1433e00 (merging main down to mine)
+=======
 }
 >>>>>>> parent of 1433e00 (merging main down to mine)
