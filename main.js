@@ -1,8 +1,6 @@
 import { gatherMenuData } from "./API/gatherMenuData.js";
 import { createTotalModal } from "./Modal/createModal.js";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 display(document.querySelector("#main-page"));
 
 let orderButtons = document.querySelectorAll(".restaurant-order");
@@ -21,21 +19,3 @@ document.querySelector("#clickme").addEventListener("click", async function () {
 document.querySelector(".sidebar-button").addEventListener("click", function () {
 	createTotalModal();
 });
-=======
-document.querySelector("#clickme").addEventListener("click", function(){
-    gatherMenuData();
-});
-
-document.querySelector(".sidebar-button").addEventListener("click", function (){
-    createTotalModal();
-});
->>>>>>> parent of 1433e00 (merging main down to mine)
-=======
-document.querySelector("#clickme").addEventListener("click", function(){
-    gatherMenuData();
-});
-
-document.querySelector(".sidebar-button").addEventListener("click", function (){
-    createTotalModal();
-});
->>>>>>> parent of 1433e00 (merging main down to mine)
