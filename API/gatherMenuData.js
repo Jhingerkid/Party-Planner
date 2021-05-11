@@ -1,59 +1,61 @@
+import { display } from "../nav.js";
+
 export async function gatherMenuData() {
-    var restaurantList = [];
-    let url = "https://api.documenu.com/v2/restaurants/zip_code/83843?fullmenu=true";
-    const request = await fetch(url, {
-      method: "GET",
-      headers: { "x-api-key": "39c3b2215c250e6368b87bd16adfdb4a" }
-    });
-    const response = await request.json();
-    // create an array of objects, where each object represents a location that exists in the desired zipcode
-    let menuData = response.data;
-    //console.log(menuData); // the initial array of data that is retrieved
-    // take the array of retrieved objects, and gather the locations we want by matching strings
-    menuData.forEach(element => {
-        if (element.restaurant_name === "Moscow Alehouse"){
-            window.moscowAlehouse = element;
-            restaurantList.push(window.moscowAlehouse);
-        }
-        if (element.restaurant_name === "Maialina Pizzeria Napoletana"){
-            window.maialina = element;
-            restaurantList.push(window.maialina);
-        }
-        if (element.restaurant_name === "CD's Smoke Pit"){
-            window.smokePit = element;
-            restaurantList.push(window.smokePit);
-        }
-        if (element.restaurant_name === "Sangria Grill"){
-            window.sangriaGrill = element;
-            restaurantList.push(window.sangriaGrill);
-        }
-    });
-    createMenuItem(restaurantList);
+	var restaurantList = [];
+	let url = "https://api.documenu.com/v2/restaurants/zip_code/83843?fullmenu=true";
+	const request = await fetch(url, {
+		method: "GET",
+		headers: { "x-api-key": "39c3b2215c250e6368b87bd16adfdb4a" },
+	});
+	const response = await request.json();
+	// create an array of objects, where each object represents a location that exists in the desired zipcode
+	let menuData = response.data;
+	console.log(menuData); // the initial array of data that is retrieved
+	// take the array of retrieved objects, and gather the locations we want by matching strings
+	menuData.forEach((element) => {
+		if (element.restaurant_name === "Moscow Alehouse") {
+			window.moscowAlehouse = element;
+			restaurantList.push(window.moscowAlehouse);
+		}
+		if (element.restaurant_name === "Maialina Pizzeria Napoletana") {
+			window.maialina = element;
+			restaurantList.push(window.maialina);
+		}
+		if (element.restaurant_name === "Sangria Grill") {
+			window.sangriaGrill = element;
+			restaurantList.push(window.sangriaGrill);
+		}
+	});
+	document.querySelector(".main-content-box").firstElementChild.remove();
+	let parent = document.querySelector(".main-content-box");
+	let tempBox = document.createElement("div");
+	tempBox.classList.add("main-page");
+	parent.appendChild(tempBox);
+	createMenuItem(restaurantList);
 }
 
-function createMenuItem (list) {
-    console.log(list);
-    list.forEach((element, elementIndex) => {
+function createMenuItem (restaurantList) {
+    console.log(restaurantList);
+    restaurantList.forEach(restaurant => {
         // declare the elements that will make up each restaurant
         let restaurantItem = document.createElement("div");
-        let restaurantName = document.createElement("h2");
-        let restaurantDesc = document.createElement("p");
+		let restaurantIcon = document.createElement("img");
         let restaurantOrder = document.createElement("button");
         // give each element a class
-        restaurantItem.classList.add("restaurantItem");
-        restaurantName.classList.add("restaurantName");
-        restaurantDesc.classList.add("restaurantDesc");
-        restaurantOrder.classList.add("restaurantOrder");
+        restaurantItem.classList.add("restaurant-item");
+		restaurantIcon.classList.add("restaurant-img");
+        restaurantOrder.classList.add("restaurant-order");
         // populate the innerhtml for each element
-        restaurantName.innerHTML = element.restaurant_name;
-        restaurantDesc.innerHTML = "description";
-        restaurantOrder.innerHTML = "Order from " + element.restaurant_name;
+        restaurantOrder.innerHTML = "Order from " + restaurant.restaurant_name;
+		// add the icon to the restaurant
+		let name = restaurant.restaurant_name.replace(/\s/g, ''); // remove spaces from name string
+		let src = "images/" + name + "-logo.png";
+		restaurantIcon.src = src;
+		restaurantIcon.alt = restaurant.restaurant_name
+        
         // add an event listener to the order button
         //restaurantOrder.addEventListener("click", function () {
-            // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
-            
-
-            //list[elementIndex].forEach((element) => {
+        // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
 
         let specificRestaurant = document.createElement("template");
         specificRestaurant.setAttribute("id", `${element.restaurant_name}-restaurant-id`)
@@ -73,12 +75,9 @@ function createMenuItem (list) {
 
                         menuSubSectionTitle.innerHTML = sectionTitle;
                         menuSubSection.append(menuSubSectionTitle);
-                        
 
-                        //console.log(menuSubSection);
-
-
-                        let omnia = list[elementIndex].menus[menuListIndex].menu_sections[menuSectionIndex].menu_items.forEach((menuItem, menuItemIndex) => {
+                        //Now we go grab all the individual menu items to populate our menu sections with
+                        list[elementIndex].menus[menuListIndex].menu_sections[menuSectionIndex].menu_items.forEach((menuItem, menuItemIndex) => {
 
                             //get variables equal to the pertinent menu item values 
                             let dishName = list[elementIndex].menus[menuListIndex].menu_sections[menuSectionIndex].menu_items[menuItemIndex].name
@@ -154,26 +153,16 @@ function createMenuItem (list) {
 
 
                             menuSubSection.append(dish);
-
-                            // console.log(menuSubSection);
                         })
                     
                         specificRestaurant.append(menuSubSection);
-                        // menuSubSection.append(dish);
-
                         console.log(menuSubSection)
             })
         });
     
-        //});
         // append element to div
-        // restaurantItem.append(restaurantName, restaurantDesc, restaurantOrder);
-        // // append the new div
-        // document.querySelector(".main-page").append(restaurantItem);
-        //specificRestaurant.append(omnia);
-        //document.querySelector(".main-page").append(specificRestaurant);
-        //});
-
-        restaurantItem.append(restaurantName, restaurantDesc, restaurantOrder);
+        restaurantItem.append(restaurantIcon, restaurantOrder);
+        // append the new div
         document.querySelector(".main-page").append(restaurantItem);
-})}
+    });
+  }

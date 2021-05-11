@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Dinner Delivery</title>
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-        <header>
-            <h1>Dinner Delivery</h1>
-            <p>Current location: Moscow, ID (83843)</p>
-            <button class="location-button" title="coming to more areas soon!">change</button>
-        </header>
-        <div class="sticky-sidebar">
-            <p class="sidebar-text">You have </p>
-            <p class="sidebar-number sidebar-text">4</p>
-            <p class="sidebar-text">items in your bag, for a total of</p>
-            <p class="sidebar-number sidebar-text">$37.50</p>
-            <button class="sidebar-button">Finish and pay</button>
-        </div>
-        <div class="main-content-box">
-            <div class="main-page">
-                <button id="clickme">Click Me</button>
+	<head>
+		<title>Dinner Delivery</title>
+		<link rel="stylesheet" href="main.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1 class="title-header">Dinner Delivery</h1>
+			<div class="location-header">
+				<p class="location-text">Current location: Moscow, ID (83843)</p>
+				<button class="location-button" title="coming to more areas soon!">change</button>
+			</div>
+		</header>
+		<div class="sticky-sidebar">
+			<button id="clickme" title="but ONLY if you're sure you need to send an API request :P">Click Me</button>
+			<p class="sidebar-text">You have</p>
+			<p class="sidebar-total sidebar-number sidebar-text">4</p>
+			<p class="sidebar-text">items in your bag, for a total of</p>
+			<p class="sidebar-number sidebar-text">$37.50</p>
+			<button class="sidebar-button">Finish and pay</button>
+		</div>
+		<div class="main-content-box">
+			<div class="delete-and-replace-me">loading...</div>
+		</div>
+		<!-- templates. note: set the class of the template to id so the css doesnt mess with it -->
+		<template id="main-page">
+            <div class="restaurant-item">
+                <img src="images/MoscowAlehouse-logo.png" alt="" class="restaurant-img">
+                <h2 class="restaurant-name">Moscow Alehouse</h2>
+                <p class="restaurant-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <button class="restaurant-order" id="alehouse-order-button">Order from Moscow Alehouse</button>
             </div>
+<<<<<<< HEAD
             <div class="restaurant-menu">
                 <div class="restaurant-img-box">
                     <img src="images/generic-food-jenn-kosar-unsplash.jpg" alt="" class="menu-background-img">
@@ -182,8 +194,184 @@
                         </div>
                     </form>
                 </div>
+=======
+            <div class="restaurant-item">
+                <img src="images/MaialinaPizzeriaNapoletana-logo.png" alt="" class="restaurant-img">
+                <h2 class="restaurant-name">Maialina Pizzeria Napoletana</h2>
+                <p class="restaurant-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <button class="restaurant-order" id="maialina-order-button">Order from Maialina Pizzeria Napoletana</button>
+>>>>>>> main
             </div>
-        </div>
-    <script type="module" src="./main.js"></script>
-    </body>
+            <div class="restaurant-item">
+                <img src="images/SangriaGrill-logo.png" alt="" class="restaurant-img">
+                <h2 class="restaurant-name">Sangria Grill</h2>
+                <p class="restaurant-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <button class="restaurant-order" id="sangria-order-button">Order from Sangria Grill</button>    
+            </div>
+		</template>
+		<template id="restaurant-menu">
+			<div class="restaurant-img-box">
+				<img src="images/generic-food-jenn-kosar-unsplash.jpg" alt="" class="menu-background-img" />
+			</div>
+			<div class="restaurant-descriiption-box">
+				<h2>Restaurant Name</h2>
+				<p>A description of the the restaurant and why you want to eat their food</p>
+			</div>
+			<div class="menu-forms-box">
+				<form>
+					<div>
+						<div>
+							<h3>Appetizers</h3>
+							<input id="appetizer1" type="checkbox" />
+							<label for="appetizer1">Jalapeno Poppers - $7.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="appetizer2" type="checkbox" />
+							<label for="appetizer2">Chicken Wings - $5.50</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="appetizer3" type="checkbox" />
+							<label for="appetizer3">Fries - $4.50</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="appetizer4" type="checkbox" />
+							<label for="appetizer4">Onion Rings - $5.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="appetizer5" type="checkbox" />
+							<label for="appetizer5">Mozzarella Sticks - $5.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+						</div>
+						<div>
+							<h3>Drinks</h3>
+							<input id="drink1" type="checkbox" />
+							<label for="drink1">Jack and Coke - $4.50</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink2" type="checkbox" />
+							<label for="drink2">Irish Car Bomb - $5.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink3" type="checkbox" />
+							<label for="drink3">Fireball - $5.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink4" type="checkbox" />
+							<label for="drink4">Washington Apple - $5.50</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink5" type="checkbox" />
+							<label for="drink5">Budlight - $3.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink6" type="checkbox" />
+							<label for="drink6">Corona - $3.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink7" type="checkbox" />
+							<label for="drink7">Dos Equis - #3.50</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink8" type="checkbox" />
+							<label for="drink8">Budweiser - $4.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+							<input id="drink9" type="checkbox" />
+							<label for="drink9">Yuengling - $4.00</label>
+							<select name="quantity">
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+								<option value="5">Five</option>
+								<option value="6">Six</option>
+							</select>
+						</div>
+						<button>Add To Order</button>
+					</div>
+				</form>
+			</div>
+		</template>
+		<!-- /templates -->
+		<script type="module" src="./main.js"></script>
+	</body>
 </html>
