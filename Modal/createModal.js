@@ -1,5 +1,3 @@
-// var exampleData = [{food: "burger", quantity : "1", price : "2.00"},{food: "pizza", quantity : "3", price : "5.00"},{food: "hotdog", quantity : "2", price : "1.50"}]
-
 export function createTotalModal (exampleData) {
     // declare the elements that within the modal
     let modal = document.createElement("div");
@@ -10,9 +8,13 @@ export function createTotalModal (exampleData) {
     modalName.classList.add("modal-name");
     modalList.classList.add("modal-list-desc");
     // populate the innerhtml for each element
-    modalName.innerHTML = "Your total is:"
+    modalName.innerHTML = "Your total is: $" + totalPrice(exampleData).toFixed(2);
     // populate the list here
-    // before this is completed, we need to agree on what data is sent here
+    exampleData.forEach(order => {
+        let lineItem = document.createElement("li");
+        lineItem.innerHTML = order.quantity + " " + order.food + "(s) for $" + order.price + " each"; 
+        modalList.append(lineItem);
+    });
     // create a back button (I can't wait for react)
     let back = document.createElement("button");
     back.innerHTML = "Back";
@@ -24,4 +26,12 @@ export function createTotalModal (exampleData) {
     modal.append(modalName, modalList, back);
     // append modal to body
     document.querySelector(".main-content-box").append(modal);
+}
+
+function totalPrice (orderedItems) {
+    var total = 0;
+    orderedItems.forEach(ticket => {
+        total = total + ticket.price * ticket.quantity;
+    })
+    return total;
 }
