@@ -1,3 +1,5 @@
+import { display } from "../nav.js";
+
 export async function gatherMenuData() {
 	var restaurantList = [];
 	let url = "https://api.documenu.com/v2/restaurants/zip_code/83843?fullmenu=true";
@@ -37,24 +39,25 @@ function createMenuItem (restaurantList) {
     restaurantList.forEach(restaurant => {
         // declare the elements that will make up each restaurant
         let restaurantItem = document.createElement("div");
-        let restaurantName = document.createElement("h2");
-        let restaurantDesc = document.createElement("p");
+		let restaurantIcon = document.createElement("img");
         let restaurantOrder = document.createElement("button");
         // give each element a class
         restaurantItem.classList.add("restaurant-item");
-        restaurantName.classList.add("restaurant-name");
-        restaurantDesc.classList.add("restaurant-desc");
+		restaurantIcon.classList.add("restaurant-img");
         restaurantOrder.classList.add("restaurant-order");
         // populate the innerhtml for each element
-        restaurantName.innerHTML = restaurant.restaurant_name;
-        restaurantDesc.innerHTML = "description";
         restaurantOrder.innerHTML = "Order from " + restaurant.restaurant_name;
+		// add the icon to the restaurant
+		let name = restaurant.restaurant_name.replace(/\s/g, ''); // remove spaces from name string
+		let src = "images/" + name + "-logo.png";
+		restaurantIcon.src = src;
+		restaurantIcon.alt = restaurant.restaurant_name
         // add an event listener to the order button
         restaurantOrder.addEventListener("click", function () {
-            // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
+           display(document.querySelector("#restaurant-menu"));
         });
         // append element to div
-        restaurantItem.append(restaurantName, restaurantDesc, restaurantOrder);
+        restaurantItem.append(restaurantIcon, restaurantOrder);
         // append the new div
         document.querySelector(".main-page").append(restaurantItem);
     });
