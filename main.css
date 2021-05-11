@@ -47,6 +47,10 @@ h1 {
 
 h2 {
     margin-bottom: 0;
+    font-style: italic;
+    font-weight: lighter;
+    font-family: garamond;
+    font-size: 30px;
 }
 
 button {
@@ -155,7 +159,6 @@ button {
     padding: 30px;
     background-color: darkorange;
     min-height: 100vh;
-
 }
 
 .restaurant-item {
@@ -192,15 +195,59 @@ button {
     color: orange;
 }
 
+.restaurant-menu {
+    position: relative;
+}
+
 .menu-background-img {
     width: 100%;
+}
+
+.restaurant-description-box {
+    position: absolute;
+    transform: rotate(3deg);
+    top: 80px;
+    left: -20px;
+    padding: 10px 30px 30px 40px;
+    color: black;
+    background-color: blanchedalmond;
+    box-shadow: 2px 2px 30px black;
+    min-width: 400px;
+    text-align: center;
+}
+
+
+.restaurant-description-box > * {
+    /* transform: rotate(-3deg); */
+}
+
+.menu-form-box {
+    padding: 30px;
+    background-color: darkorange;
+    position: relative;
+    top: -5px;
+    border-top: 3px solid;
+}
+
+.menu-items-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-item {
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal {
     background-color: black;
     border: 4px solid orange;
     position: fixed;
-    box-shadow: 2px 2px 20px orangered;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
