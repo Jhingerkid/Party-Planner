@@ -49,10 +49,19 @@ function createMenuItem (list) {
         restaurantDesc.innerHTML = "description";
         restaurantOrder.innerHTML = "Order from " + element.restaurant_name;
         // add an event listener to the order button
-        restaurantOrder.addEventListener("click", function () {
+        //restaurantOrder.addEventListener("click", function () {
             // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
             
+
+            //list[elementIndex].forEach((element) => {
+
+        let specificRestaurant = document.createElement("template");
+        specificRestaurant.setAttribute("id", `${element.restaurant_name}-restaurant-id`)
+        specificRestaurant.setAttribute("name", "restaurant-menu")
+
                 list[elementIndex].menus.forEach((menuList, menuListIndex) => {
+
+
                     list[elementIndex].menus[menuListIndex].menu_sections.forEach((menuSection, menuSectionIndex) => {
                         //console.log(menuSection);
                         //get variable equal to the pertinent menu heading sections
@@ -66,10 +75,10 @@ function createMenuItem (list) {
                         menuSubSection.append(menuSubSectionTitle);
                         
 
-                        console.log(menuSubSection);
+                        //console.log(menuSubSection);
 
 
-                        list[elementIndex].menus[menuListIndex].menu_sections[menuSectionIndex].menu_items.forEach((menuItem, menuItemIndex) => {
+                        let omnia = list[elementIndex].menus[menuListIndex].menu_sections[menuSectionIndex].menu_items.forEach((menuItem, menuItemIndex) => {
 
                             //get variables equal to the pertinent menu item values 
                             let dishName = list[elementIndex].menus[menuListIndex].menu_sections[menuSectionIndex].menu_items[menuItemIndex].name
@@ -146,20 +155,25 @@ function createMenuItem (list) {
 
                             menuSubSection.append(dish);
 
-                            console.log(menuSubSection);
+                            // console.log(menuSubSection);
                         })
                     
-                   
+                        specificRestaurant.append(menuSubSection);
                         // menuSubSection.append(dish);
 
-                        // console.log(menuSubSection)
+                        console.log(menuSubSection)
             })
         });
-    });
+    
         //});
         // append element to div
+        // restaurantItem.append(restaurantName, restaurantDesc, restaurantOrder);
+        // // append the new div
+        // document.querySelector(".main-page").append(restaurantItem);
+        //specificRestaurant.append(omnia);
+        //document.querySelector(".main-page").append(specificRestaurant);
+        //});
+
         restaurantItem.append(restaurantName, restaurantDesc, restaurantOrder);
-        // append the new div
         document.querySelector(".main-page").append(restaurantItem);
-    
 })}
