@@ -52,7 +52,7 @@ function createMenuItem (restaurantList) {
 		let src = "images/" + name + "-logo.png";
 		restaurantIcon.src = src;
 		restaurantIcon.alt = restaurant.restaurant_name
-        
+
         // add an event listener to the order button
         //restaurantOrder.addEventListener("click", function () {
         // when clicked this should populate restaurant-description-box and menu-forms-box on the bottom of the page
@@ -166,3 +166,5 @@ function createMenuItem (restaurantList) {
         document.querySelector(".main-page").append(restaurantItem);
     });
   }
+
+  //test comment
