@@ -107,7 +107,6 @@ button {
     width: 200px;
     background-color: blanchedalmond;
     padding: 0 28px;
-    z-index: -1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -322,6 +321,7 @@ button {
     border-radius: 2px;
     padding: 10px;
     overflow: auto;
+    z-index: 8;
 }
 
 .modal-list-desc > li {
