@@ -78,6 +78,7 @@ function createMenuItem(restaurantList) {
 				//Make the menu headings that will contain the appropriate menu items
 				let menuSubSection = document.createElement("div");
 				let menuSubSectionTitle = document.createElement("h1");
+				let addForm = document.createElement("form");
 
 				menuSubSectionTitle.innerHTML = sectionTitle;
 				menuSubSection.append(menuSubSectionTitle);
@@ -107,10 +108,14 @@ function createMenuItem(restaurantList) {
 					yesorno.setAttribute("type", "checkbox");
 					yesorno.setAttribute("name", "order");
 					yesorno.setAttribute("value", `${dishName}`);
-					let menuItemArray = [];
 
+                    let spanElement = document.createElement("span");
+                    spanElement.classList.add("checkmark");
+
+					let menuItemArray = [];
 					menuItemArray.push(yesorno);
 					menuItemArray.push(dishName);
+
 					let quantity = document.createElement("select");
 					quantity.setAttribute("name", "quantity");
 					menuItemArray.push(quantity);
@@ -158,14 +163,16 @@ function createMenuItem(restaurantList) {
 					if (dishPrice == 0) {
 						dish.append(title);
 					} else if (dishPrice > 0) {
-						dish.append(title, cost, yesorno, quantity);
+						dish.append(title, cost, yesorno, spanElement, quantity);
 					}
 					menuSubSection.append(dish);
 				});
 				specificRestaurant.append(menuSubSection);
+
 				let applyOrderBtn = document.createElement("button");
 				applyOrderBtn.setAttribute("type", "submit");
-				specificRestaurant.append(applyOrderBtn);
+                specificRestaurant.append(applyOrderBtn);
+
 				applyOrderBtn.addEventListener("click", function (event) {
 					display(specificRestaurant);
 					let exampleData = makeOrderObjArr(arrayOfInputsForObjectifying);
@@ -189,7 +196,5 @@ function makeOrderObjArr(arrOfElements) {
 			};
 		}
 	});
-	// console.log(arrOfElements);
-	// console.log(arr);
 	return arr;
 }
