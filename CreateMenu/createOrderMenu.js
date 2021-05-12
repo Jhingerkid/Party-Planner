@@ -34,7 +34,7 @@ export function createOrderMenu(restaurant) {
 				//Make the menu headings that will contain the appropriate menu items
 				let menuSubSection = document.createElement("div");
                 menuSubSection.classList.add("menu-items-box");
-				let menuSubSectionTitle = document.createElement("h1");
+				let menuSubSectionTitle = document.createElement("h3");
 				
 				menuSubSectionTitle.innerHTML = sectionTitle;
 				menuSubSection.append(menuSubSectionTitle);
@@ -45,16 +45,16 @@ export function createOrderMenu(restaurant) {
             section.menu_items.forEach(item => {
                 // create elements for the menu item
                 let itemDiv = document.createElement("div");
-                let itemName = document.createElement("h3");
+                let itemName = document.createElement("h4");
                 let itemDesc = document.createElement("p");
-                let itemPrice = document.createElement("h4");
+                let itemPrice = document.createElement("h5");
                 let itemInput = document.createElement("input");
                 // assign classes to each element
                 itemDiv.classList.add("menu-item");
                 itemName.classList.add("example");
-                itemDesc.classList.add("example");
-                itemPrice.classList.add("example");
-                itemInput.classList.add("example");
+                itemDesc.classList.add("item-desc");
+                itemPrice.classList.add("item-price");
+                itemInput.classList.add("item-quantity");
                 itemInput.setAttribute("type", "number");
 
 
