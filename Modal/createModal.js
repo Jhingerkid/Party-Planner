@@ -23,10 +23,15 @@ export function createTotalModal (exampleData) {
     back.addEventListener("click", function () {
     modal.remove();
     });
+    // create a confirm order button that does nothing  -Sasha
+    let confirmButton = document.createElement("button");
+    confirmButton.innerHTML = "Place Order";
+    confirmButton.classList.add("order-confirm");
     // add elements to modal
-    modal.append(modalName, modalList, back);
+    modal.append(modalName, modalList, confirmButton, back);
     // append modal to body
     document.querySelector(".main-content-box").append(modal);
+
 }
 
 function totalPrice (orderedItems) {

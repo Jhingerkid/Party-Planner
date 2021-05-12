@@ -60,6 +60,17 @@ h3 {
     text-align: center;
 }
 
+h4 {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+h5 {
+    font-size: 18px;
+    margin: 0;
+    border-bottom: 2px solid;
+}
+
 button {
     border: none;
     background-color: orange;
@@ -158,6 +169,15 @@ button {
     padding-right: 200px;
 }
 
+.delete-and-replace-me {
+    background-color: darkorange;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+
 .main-page {
     display: flex;
     flex-wrap: wrap;
@@ -252,23 +272,68 @@ button {
 
 .item-desc {
     width: 100%;
+    font-style: italic;
 }
 
-.item-price {
-    /* margin-left: 20%; */
+.item-quantity {
+    background-color: blanchedalmond;
+    border: 2px solid;
+    height: 30px;
+    width: 50px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.menu-item > button {
+    height: 30px;
+    border-radius: 2px;
+    background-color: black;
+    color: orange;
+    font-size: 14px;
+}
+
+.menu-item > button:hover {
+    background-color: orange;
+    color: black;
+    box-shadow: 2px 2px 8px black;
 }
 
 .modal {
-    background-color: black;
-    border: 4px solid orange;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 400px;
+    height: 400px;    
+    background-color: blanchedalmond;
+    background-image: url("images/delivery-bike-icon.png");
+    background-position: 90% 90%;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
     box-shadow: 2px 2px 50px black;
-    color: blanchedalmond;
+    color: black;
     padding: 30px;
-    border-radius: 2%;
+    border-radius: 2px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.modal-list-desc > li {
+    margin-bottom: 8px;
+}
+
+.modal > button {
+    background-color: darkorange;
+    padding: 10px;
+    margin: 10px;
+}
+
+.modal > button:hover {
+    background-color: orange;
 }
