@@ -11,7 +11,6 @@ export async function gatherMenuData() {
 	const response = await request.json();
 	// create an array of objects, where each object represents a location that exists in the desired zipcode
 	let menuData = response.data;
-	console.log(menuData); // the initial array of data that is retrieved
 	// take the array of retrieved objects, and gather the locations we want by matching strings
 	menuData.forEach((element) => {
 		if (element.restaurant_name === "Moscow Alehouse") {
@@ -36,7 +35,6 @@ export async function gatherMenuData() {
 }
 
 function createMenuItem (restaurantList) {
-    console.log(restaurantList);
     restaurantList.forEach(restaurant => {
         // declare the elements that will make up each restaurant
         let restaurantItem = document.createElement("div");
