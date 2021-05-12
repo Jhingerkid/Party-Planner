@@ -24,10 +24,24 @@ export function createOrderMenu(restaurant) {
     orderImg.alt = restaurant.restaurant_name
     // construct the list of menu items
     let restaurantMenus = restaurant.menus;
-    let menuItems = document.createElement("div");
-    menuItems.classList.add("menu-items-box")
+    // let menuItems = document.createElement("div");
+    // menuItems.classList.add("menu-items-box")
     restaurantMenus.forEach(menu => {
-        menu.menu_sections.forEach(section => {
+        menu.menu_sections.forEach((section, sectionIndex) => {
+            //console.log(restaurant);
+              let sectionTitle = restaurant.menus[0].menu_sections[sectionIndex].section_name;
+  //console.log(sectionTitle);
+				//Make the menu headings that will contain the appropriate menu items
+				let menuSubSection = document.createElement("div");
+                menuSubSection.classList.add("menu-items-box");
+				let menuSubSectionTitle = document.createElement("h1");
+				
+				menuSubSectionTitle.innerHTML = sectionTitle;
+				menuSubSection.append(menuSubSectionTitle);
+
+
+
+
             section.menu_items.forEach(item => {
                 // create elements for the menu item
                 let itemDiv = document.createElement("div");
@@ -41,6 +55,9 @@ export function createOrderMenu(restaurant) {
                 itemDesc.classList.add("example");
                 itemPrice.classList.add("example");
                 itemInput.classList.add("example");
+                itemInput.setAttribute("type", "number");
+
+
                 // assign the innerHTML of each item
                 itemName.innerHTML = item.name;
                 itemDesc.innerHTML = item.description;
@@ -50,6 +67,13 @@ export function createOrderMenu(restaurant) {
                 addToOrder.innerHTML = "Add to Order";
                 // add an event listener to the order button that adds to the current items ordered and running total
                 addToOrder.addEventListener("click", function(){
+                    //validate the itemInput value
+                    // if((itemInput.value % 2 !== 0) || (itemInput.value % 2 !== 1) || (itemInput.value < 1)) {
+                    //     console.log(itemInput);
+                    //     console.log(itemInput.value);
+                    //     console.log("Invalid input")
+                        
+                    // }
                     let newItem = {food: item.name, quantity : itemInput.value, price : item.price, location : restaurant.restaurant_name}; // this should be a class or something but I'm tired
                     window.orderedItems.push(newItem);
                     let currentTotal = document.querySelector(".running-total").innerHTML.replace(/\$/g, '');
@@ -61,12 +85,14 @@ export function createOrderMenu(restaurant) {
                 // append the created elements to the item div
                 itemDiv.append(itemName, itemDesc, itemPrice, itemInput, addToOrder);
                 // append the item div to the menu items div
-                menuItems.append(itemDiv);
+                //menuItems.append(itemDiv);
+                menuSubSection.append(itemDiv);
             })
+            menuFormBox.append(menuSubSection);
         });
     });
     // add the menuItems to the form
-    menuFormBox.append(menuItems);
+    // menuFormBox.append(menuSubSection);
     // remove the old screen
     document.querySelector(".main-content-box").firstElementChild.remove();	
     // append the elements to their divs
