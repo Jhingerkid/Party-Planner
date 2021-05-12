@@ -1,3 +1,4 @@
+import { createOrderMenu } from "../CreateMenu/createOrderMenu.js";
 import { display } from "../nav.js";
 
 export async function gatherMenuData() {
@@ -54,7 +55,8 @@ function createMenuItem (restaurantList) {
 		restaurantIcon.alt = restaurant.restaurant_name
         // add an event listener to the order button
         restaurantOrder.addEventListener("click", function () {
-           display(document.querySelector("#restaurant-menu"));
+			createOrderMenu(restaurant);
+           // display(document.querySelector("#restaurant-menu"));
         });
         // append element to div
         restaurantItem.append(restaurantIcon, restaurantOrder);
