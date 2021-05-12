@@ -28,16 +28,14 @@ export function createOrderMenu(restaurant) {
     // menuItems.classList.add("menu-items-box")
     restaurantMenus.forEach(menu => {
         menu.menu_sections.forEach((section, sectionIndex) => {
-            //console.log(restaurant);
-              let sectionTitle = restaurant.menus[0].menu_sections[sectionIndex].section_name;
-  //console.log(sectionTitle);
-				//Make the menu headings that will contain the appropriate menu items
-				let menuSubSection = document.createElement("div");
-                menuSubSection.classList.add("menu-items-box");
-				let menuSubSectionTitle = document.createElement("h3");
-				
-				menuSubSectionTitle.innerHTML = sectionTitle;
-				menuSubSection.append(menuSubSectionTitle);
+            //Make the menu headings that will contain the appropriate menu items
+            let sectionTitle = restaurant.menus[0].menu_sections[sectionIndex].section_name;
+            let menuSubSection = document.createElement("div");
+            menuSubSection.classList.add("menu-items-box");
+            let menuSubSectionTitle = document.createElement("h3");
+            
+            menuSubSectionTitle.innerHTML = sectionTitle;
+            menuSubSection.append(menuSubSectionTitle);
 
 
 
@@ -66,14 +64,12 @@ export function createOrderMenu(restaurant) {
                 let addToOrder = document.createElement("button");
                 addToOrder.innerHTML = "Add to Order";
                 // add an event listener to the order button that adds to the current items ordered and running total
-                addToOrder.addEventListener("click", function(){
+                addToOrder.addEventListener("click", function(event){
                     //validate the itemInput value
-                    // if((itemInput.value % 2 !== 0) || (itemInput.value % 2 !== 1) || (itemInput.value < 1)) {
-                    //     console.log(itemInput);
-                    //     console.log(itemInput.value);
-                    //     console.log("Invalid input")
-                        
-                    // }
+                    if((Math.floor(itemInput.value) !== +itemInput.value) || (+itemInput.value < 1)) {
+                        return;
+                    }
+                    
                     let newItem = {food: item.name, quantity : itemInput.value, price : item.price, location : restaurant.restaurant_name}; // this should be a class or something but I'm tired
                     window.orderedItems.push(newItem);
                     let currentTotal = document.querySelector(".running-total").innerHTML.replace(/\$/g, '');
@@ -84,15 +80,13 @@ export function createOrderMenu(restaurant) {
                 });
                 // append the created elements to the item div
                 itemDiv.append(itemName, itemDesc, itemPrice, itemInput, addToOrder);
-                // append the item div to the menu items div
-                //menuItems.append(itemDiv);
+                // append the item div to its corresponding subsection div
                 menuSubSection.append(itemDiv);
             })
             menuFormBox.append(menuSubSection);
         });
     });
     // add the menuItems to the form
-    // menuFormBox.append(menuSubSection);
     // remove the old screen
     document.querySelector(".main-content-box").firstElementChild.remove();	
     // append the elements to their divs
