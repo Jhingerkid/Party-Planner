@@ -28,6 +28,9 @@ export function createOrderMenu(restaurant) {
     menuItems.classList.add("menu-items-box")
     restaurantMenus.forEach(menu => {
         menu.menu_sections.forEach(section => {
+            
+
+
             section.menu_items.forEach(item => {
                 // create elements for the menu item
                 let itemDiv = document.createElement("div");
@@ -41,6 +44,9 @@ export function createOrderMenu(restaurant) {
                 itemDesc.classList.add("example");
                 itemPrice.classList.add("example");
                 itemInput.classList.add("example");
+                itemInput.setAttribute("type", "number");
+
+
                 // assign the innerHTML of each item
                 itemName.innerHTML = item.name;
                 itemDesc.innerHTML = item.description;
@@ -50,6 +56,13 @@ export function createOrderMenu(restaurant) {
                 addToOrder.innerHTML = "Add to Order";
                 // add an event listener to the order button that adds to the current items ordered and running total
                 addToOrder.addEventListener("click", function(){
+                    //validate the itemInput value
+                    // if((itemInput.value % 2 !== 0) || (itemInput.value % 2 !== 1) || (itemInput.value < 1)) {
+                    //     console.log(itemInput);
+                    //     console.log(itemInput.value);
+                    //     console.log("Invalid input")
+                        
+                    // }
                     let newItem = {food: item.name, quantity : itemInput.value, price : item.price, location : restaurant.restaurant_name}; // this should be a class or something but I'm tired
                     window.orderedItems.push(newItem);
                     let currentTotal = document.querySelector(".running-total").innerHTML.replace(/\$/g, '');

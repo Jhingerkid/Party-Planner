@@ -1,6 +1,6 @@
 import { createOrderMenu } from "../CreateMenu/createOrderMenu.js";
 import { display } from "../nav.js";
-//wow
+
 export async function gatherMenuData() {
 	var restaurantList = [];
 	let url = "https://api.documenu.com/v2/restaurants/zip_code/83843?fullmenu=true";
