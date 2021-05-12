@@ -24,11 +24,22 @@ export function createOrderMenu(restaurant) {
     orderImg.alt = restaurant.restaurant_name
     // construct the list of menu items
     let restaurantMenus = restaurant.menus;
-    let menuItems = document.createElement("div");
-    menuItems.classList.add("menu-items-box")
+    // let menuItems = document.createElement("div");
+    // menuItems.classList.add("menu-items-box")
     restaurantMenus.forEach(menu => {
-        menu.menu_sections.forEach(section => {
-            
+        menu.menu_sections.forEach((section, sectionIndex) => {
+            //console.log(restaurant);
+              let sectionTitle = restaurant.menus[0].menu_sections[sectionIndex].section_name;
+  //console.log(sectionTitle);
+				//Make the menu headings that will contain the appropriate menu items
+				let menuSubSection = document.createElement("div");
+                menuSubSection.classList.add("menu-items-box");
+				let menuSubSectionTitle = document.createElement("h1");
+				
+				menuSubSectionTitle.innerHTML = sectionTitle;
+				menuSubSection.append(menuSubSectionTitle);
+
+
 
 
             section.menu_items.forEach(item => {
@@ -74,12 +85,14 @@ export function createOrderMenu(restaurant) {
                 // append the created elements to the item div
                 itemDiv.append(itemName, itemDesc, itemPrice, itemInput, addToOrder);
                 // append the item div to the menu items div
-                menuItems.append(itemDiv);
+                //menuItems.append(itemDiv);
+                menuSubSection.append(itemDiv);
             })
+            menuFormBox.append(menuSubSection);
         });
     });
     // add the menuItems to the form
-    menuFormBox.append(menuItems);
+    // menuFormBox.append(menuSubSection);
     // remove the old screen
     document.querySelector(".main-content-box").firstElementChild.remove();	
     // append the elements to their divs
