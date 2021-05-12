@@ -4,7 +4,6 @@ import { display } from "./nav.js";
 
 // example data that may be passed to the modal
 export var exampleData;
-display(document.querySelector("#main-page"));
 
 let orderButtons = await gatherMenuData();
 // let orderButtons = document.querySelectorAll(".restaurant-order");
@@ -17,9 +16,11 @@ let orderButtons = await gatherMenuData();
 
 // I would like to be able to use display(gatherMenuData());
 document.querySelector("#clickme").addEventListener("click", async function () {
-	gatherMenuData();
+	// display(document.querySelector("#main-page"));
 });
 // overlay
 document.querySelector(".sidebar-button").addEventListener("click", function () {
 	createTotalModal(exampleData);
 });
+
+display(document.querySelector("#main-page"));

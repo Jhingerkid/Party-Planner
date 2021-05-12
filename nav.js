@@ -9,7 +9,7 @@ export function display(displayMe) {
 	if (displayMe.id) {
 		view.classList.add(displayMe.id); // makes classes of the ids so the css doesnt mess with the templates
 	}
-  console.log(displayMe);
+//   console.log(displayMe);
 	view.appendChild(displayMe.content.cloneNode(true));
 	parent.appendChild(view);
 	return;
