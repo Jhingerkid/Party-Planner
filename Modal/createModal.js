@@ -12,7 +12,8 @@ export function createTotalModal (exampleData) {
     // populate the list here
     exampleData.forEach(order => {
         let lineItem = document.createElement("li");
-        lineItem.innerHTML = order.quantity + " " + order.food + "(s) for $" + order.price + " each"; 
+        let orderPrice = Number(order.price) * Number(order.quantity);
+        lineItem.innerHTML = order.quantity + " " + order.food + "(s) from " + order.location + " for $" + orderPrice.toFixed(2); + " each"; 
         modalList.append(lineItem);
     });
     // create a back button (I can't wait for react)
