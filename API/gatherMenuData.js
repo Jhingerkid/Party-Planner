@@ -78,7 +78,6 @@ function createMenuItem(restaurantList) {
 				//Make the menu headings that will contain the appropriate menu items
 				let menuSubSection = document.createElement("div");
 				let menuSubSectionTitle = document.createElement("h1");
-				let addForm = document.createElement("form");
 
 				menuSubSectionTitle.innerHTML = sectionTitle;
 				menuSubSection.append(menuSubSectionTitle);
